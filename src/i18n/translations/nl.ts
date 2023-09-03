@@ -5,6 +5,7 @@ export const nl: I18nTranslation = {
   relations: 'Relaties',
   save: 'Opslaan',
   cancel: 'Annuleren',
+  saved: 'Opgeslagen',
 
   'relation.name': 'Naam',
   'relation.surname': 'Achternaam',

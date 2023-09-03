@@ -1,10 +1,11 @@
 # Quick
 
-## Deployed version
-Vercel .... Netlify
+## Deployed version (on Vercel)
+Please click this link to see the running version:
+[https://meta-fact.vercel.app/](https://meta-fact.vercel.app/)
 
 ## Source codes
-https://github ....
+https://github.com/farhadjalali/meta-fact
 
 
 ## Project structure

@@ -1,11 +1,11 @@
-import { FC, useState, ChangeEvent } from 'react'
+import { FC, useState, ChangeEvent, useEffect } from 'react'
 import './style.scss'
 
 type Props = {
   defaultValue?: string
   name: string
   label: string
-  validation?: unknown | undefined
+  validation?: unknown
   onChange: (ev: { name: string; newValue: string | undefined }) => void
 }
 
@@ -13,6 +13,10 @@ export const CardField: FC<Props> = ({ name, label, validation, defaultValue, on
   const [editMode, setEditMode] = useState(false)
   const [hasError, setHasError] = useState(false)
   const [value, setValue] = useState(defaultValue)
+
+  useEffect(() => {
+    setValue(defaultValue)
+  }, [defaultValue])
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     setValue(event.target.value)

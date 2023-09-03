@@ -1,3 +1,5 @@
+@import "../../styles/colors";
+
 .card-field {
   display: flex;
   flex-direction: row;
@@ -20,7 +22,7 @@
     padding: 8px;
     width: 100%;
     &:hover {
-      background-color: #222;
+      background-color: $gray900;
     }
   }
 
@@ -30,10 +32,10 @@
     width: 100%;
     background-color: transparent;
     color: white;
-    border: 1px solid #bbb;
+    border: 1px solid $gray300;
 
     &.error {
-      background-color: #633;
+      background-color: $red800;
     }
   }
 }

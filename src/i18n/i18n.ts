@@ -10,6 +10,7 @@ export const $t = (key: TextKeys): string => {
     case 'nl':
       return nl[key] || en[key] || key
 
+    case 'en':
     default:
       return en[key] || key
   }

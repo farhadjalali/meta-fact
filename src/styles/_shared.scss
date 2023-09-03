@@ -17,3 +17,24 @@
     padding: 2rem 0.5rem;
   }
 }
+
+.buttons-group {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 2rem 0;
+
+  button {
+    min-width: 75px;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: none;
+    background-color: $gray300;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $gray100;
+    }
+  }
+}

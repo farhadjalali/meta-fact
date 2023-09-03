@@ -3,6 +3,7 @@ export const en = {
   relations: 'Relations',
   save: 'Save',
   cancel: 'Cancel',
+  saved: 'Saved',
 
   'relation.name': 'Name',
   'relation.surname': 'Surname',

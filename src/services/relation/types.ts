@@ -9,12 +9,6 @@ export type Relation = {
   address?: string
 }
 
-export type RelationState = {
-  relations: Relation[]
-  loadingState: 'idle' | 'loading' | 'failed' | 'completed'
-  loadingProgress: number
-}
-
 export type PartialLoadItem<T> = {
   item: T
   index: number

@@ -11,10 +11,10 @@ import { PageNotFound } from './pages/PageNotFound'
 export const AppRoutes = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/404" element={<PageNotFound />} />
       <Route path="/relations" element={<PageRelations />} />
       <Route path="/relation/:id" element={<PageRelation />} />
-      <Route path="*" element={<PageHome />} />
+      <Route path="/" element={<PageHome />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   </BrowserRouter>
 )

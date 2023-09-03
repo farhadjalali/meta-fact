@@ -1,12 +1,12 @@
 import { FC, useEffect, useState } from 'react'
 import { Relation, updateRelation, useStore } from '../../services'
 import { $t } from '../../i18n'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import './style.scss'
-import { useNavigate } from 'react-router-dom'
 import { config } from '../../config'
 import { useDispatch } from 'react-redux'
 import { CardField } from '../card-field/CardField'
+import { toast } from 'react-toastify'
 
 export const RelationCard: FC = () => {
   const [relation, setRelation] = useState<Relation | undefined>()
@@ -31,9 +31,10 @@ export const RelationCard: FC = () => {
     setIsDirty(false)
   }
 
-  function commitEdit() {
+  function commitChanges() {
     dispatch(updateRelation(relation!) as any)
     setIsDirty(false)
+    toast($t('saved'))
   }
 
   function onFieldChange(ev: { name: string; newValue: string | undefined }) {
@@ -66,7 +67,13 @@ export const RelationCard: FC = () => {
         defaultValue={relation.gender}
         onChange={onFieldChange}
       />
-      <CardField name="age" label={$t('relation.age')} defaultValue={relation.name} onChange={onFieldChange} />
+      <CardField
+        name="age"
+        label={$t('relation.age')}
+        validation={config.validation.ageRegex}
+        defaultValue={String(relation.age)}
+        onChange={onFieldChange}
+      />
       <CardField
         name="phone"
         label={$t('relation.phone')}
@@ -89,13 +96,9 @@ export const RelationCard: FC = () => {
       />
 
       {isDirty && (
-        <div className="card-buttons">
-          <button onClick={commitEdit} className="btn btn-primary">
-            {$t('save')}
-          </button>
-          <button onClick={resetRelation} className="btn btn-secondary">
-            {$t('cancel')}
-          </button>
+        <div className="buttons-group">
+          <button onClick={commitChanges}>{$t('save')}</button>
+          <button onClick={resetRelation}>{$t('cancel')}</button>
         </div>
       )}
     </div>

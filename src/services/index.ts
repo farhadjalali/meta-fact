@@ -1,2 +1,2 @@
-export * from './relations'
-export * from './RootState'
+export * from './relation'
+export * from './store'
