@@ -1,5 +1,5 @@
-import { FC, useEffect, useState } from 'react'
-import { Relation, updateRelation, useStore } from '../../services'
+import { FC, useCallback, useEffect, useState } from 'react'
+import { AppDispatch, Relation, updateRelation, useStore } from '../../services'
 import { $t } from '../../i18n'
 import { useParams, useNavigate } from 'react-router-dom'
 import './style.scss'
@@ -16,23 +16,23 @@ export const RelationCard: FC = () => {
     relation: { relations },
   } = useStore()
   const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const dispatch: AppDispatch = useDispatch()
 
-  useEffect(() => {
-    resetRelation()
-  }, [relations, id])
-
-  function resetRelation() {
+  const resetRelation = useCallback(() => {
     const rel = relations.find((relation) => relation.id === id)
     if (!rel) {
       navigate(config.notFoundUrl)
     }
     setRelation(rel)
     setIsDirty(false)
-  }
+  }, [relations, id, navigate])
+
+  useEffect(() => {
+    resetRelation()
+  }, [resetRelation])
 
   function commitChanges() {
-    dispatch(updateRelation(relation!) as any)
+    dispatch(updateRelation(relation!))
     setIsDirty(false)
     toast($t('saved'))
   }
