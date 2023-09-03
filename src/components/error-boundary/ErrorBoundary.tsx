@@ -19,14 +19,9 @@ export class ErrorBoundary extends React.Component {
     if (this.state.hasError) {
       // You can render any custom fallback UI
       return (
-        <div className="error-boundary">
-          <p>{$t('global-error')}</p>
-          <hr />
-
-          <div className="details">
-            <h2>More info:</h2>
-            {this.state.error.stack}
-          </div>
+        <div className="error-boundary container">
+          <h2>{$t('global-error')}</h2>
+          <p>{this.state.error.stack}</p>
         </div>
       )
     }

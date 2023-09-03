@@ -1,10 +1,7 @@
-.error-boundary {
-  padding: 20px;
-  color: red;
-  font-size: 18px;
-}
+@import "../../styles/_colors.scss";
 
-.details{ 
-  color: #333;
-  font-size: 14px;
+.error-boundary {
+  h2 {
+    color: $red500;
+  }
 }

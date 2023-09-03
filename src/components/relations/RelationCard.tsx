@@ -31,7 +31,7 @@ export const RelationCard: FC = () => {
   function commitChanges() {
     dispatch(updateRelation(relation!))
     setIsDirty(false)
-    toast('Saved1!')
+    toast('Saved!', { type: 'success' })
   }
 
   function onFieldChange(ev: { name: string; newValue: string | undefined }) {
@@ -84,7 +84,9 @@ export const RelationCard: FC = () => {
 
       {isDirty && (
         <div className="buttons-group">
-          <button onClick={commitChanges}>Save</button>
+          <button className="primary" onClick={commitChanges}>
+            Save
+          </button>
           <button onClick={resetRelation}>Cancel</button>
         </div>
       )}
