@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { Relation } from './types'
 
-interface RelationState {
+export interface RelationState {
   relations: Relation[]
   loadingState: 'idle' | 'loading' | 'failed' | 'completed'
   loadingProgress: number

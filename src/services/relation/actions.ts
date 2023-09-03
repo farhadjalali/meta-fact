@@ -3,12 +3,19 @@ import { Observable } from 'rxjs'
 import { loadingProgressUpdated, loadingStateUpdated, relationUpserted } from './reducer'
 import { PartialLoadItem, Relation } from './types'
 import { sample } from './sample-data'
+import { GetStateFunction } from '../store'
 
-export const retrieveRelations = () => (dispatch: Dispatch) => {
+export const retrieveRelations = () => (dispatch: Dispatch, getState: GetStateFunction) => {
+  const { relation } = getState()
+  if (relation.loadingState !== 'idle') return // Only load if we are in idle state
+
+  // First set the loading state to loading
   dispatch(loadingStateUpdated('loading'))
 
+  // Then start loading the relations
   loadRelationObserver$().subscribe({
     next: ({ item, index, total }) => {
+      // Update / insert the relation in the store
       dispatch(relationUpserted(item))
       const progress = Math.ceil(((index + 1) / total) * 100)
       dispatch(loadingProgressUpdated(progress))

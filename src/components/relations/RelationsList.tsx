@@ -1,6 +1,5 @@
 import { Relation } from '../../services'
 import './style.scss'
-import { $t } from '../../i18n'
 import { useNavigate } from 'react-router'
 import { FC } from 'react'
 
@@ -16,13 +15,13 @@ export const RelationsList: FC<Props> = ({ relations }) => {
       <table>
         <thead>
           <tr>
-            <th>{$t('relation.name')}</th>
-            <th>{$t('relation.surname')}</th>
-            <th>{$t('relation.gender')}</th>
-            <th>{$t('relation.age')}</th>
-            <th>{$t('relation.phone')}</th>
-            <th>{$t('relation.email')}</th>
-            <th>{$t('relation.address')}</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
           </tr>
         </thead>
         <tbody>

@@ -1,28 +1,22 @@
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { RelationsList } from '../components/relations/RelationsList'
-import { $t } from '../i18n'
-import { AppDispatch, retrieveRelations, useStore } from '../services'
+import { RelationState, RootState, retrieveRelations, useAppDispatch } from '../services'
 import { ProgressBar } from '../components/progress-bar/ProgressBar'
 
 export const PageRelations = () => {
-  const dispatch: AppDispatch = useDispatch()
-
-  const {
-    relation: { relations, loadingProgress },
-  } = useStore()
+  const dispatch = useAppDispatch()
+  const { relations, loadingProgress } = useSelector<RootState, RelationState>((state) => state.relation)
 
   useEffect(() => {
     dispatch(retrieveRelations())
   }, [dispatch])
 
   return (
-    <>
-      <div className="page-relations container">
-        <ProgressBar progress={loadingProgress} />
-        <h1>{$t('relations')}</h1>
-        <RelationsList relations={relations} />
-      </div>
-    </>
+    <div className="page-relations container">
+      <ProgressBar progress={loadingProgress} />
+      <h1>Relations</h1>
+      <RelationsList relations={relations} />
+    </div>
   )
 }

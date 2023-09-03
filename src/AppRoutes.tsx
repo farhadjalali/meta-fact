@@ -13,7 +13,7 @@ export const AppRoutes = () => (
     <Routes>
       <Route path="/relations" element={<PageRelations />} />
       <Route path="/relation/:id" element={<PageRelation />} />
-      <Route path="/" element={<PageHome />} />
+      <Route index element={<PageHome />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   </BrowserRouter>

@@ -2,7 +2,7 @@
 // @ts-nocheck
 import React from 'react'
 import { $t } from '../../i18n'
-import './ErrorBoundary.scss'
+import './style.scss'
 
 export class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -15,17 +15,12 @@ export class ErrorBoundary extends React.Component {
     return { hasError: true, error }
   }
 
-  //componentDidCatch(error, errorInfo) {
-  // You can also log the error to an error reporting service
-  // logErrorToMyService(error, errorInfo)
-  //}
-
   render() {
     if (this.state.hasError) {
       // You can render any custom fallback UI
       return (
         <div className="error-boundary">
-          <p>{$t.GLOBAL_ERROR}</p>
+          <p>{$t('global-error')}</p>
           <hr />
 
           <div className="details">
