@@ -1,0 +1,16 @@
+{
+  "printWidth": 120,
+  "parser": "typescript",
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "semi": false,
+  "overrides": [
+    {
+        "files": ["*.md", "*.json", "*.yml", "*.yaml"],
+        "options": {
+            "tabWidth": 2
+        }
+    }
+  ]
+}

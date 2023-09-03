@@ -1,0 +1,39 @@
+.card-field {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  height: 3rem;
+  cursor: pointer;
+
+  label {
+    display: block;
+    font-weight: bold;
+    line-height: 200%;
+    width: 5rem;
+    color: gray;
+  }
+
+  .card-text {
+    display: block;
+    font-size: 1rem;
+    padding: 8px;
+    width: 100%;
+    &:hover {
+      background-color: #222;
+    }
+  }
+
+  input {
+    font-size: 1rem;
+    padding: 8px;
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    border: 1px solid #bbb;
+
+    &.error {
+      background-color: #633;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+/*
+  Shared stylings
+*/
+
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  padding: 6rem 2rem;
+  max-width: $media-l;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  @media screen and (max-width: $media-s) {
+    padding: 2rem 0.5rem;
+  }
+}
