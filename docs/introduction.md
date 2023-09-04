@@ -13,8 +13,8 @@
  In combination with RxJs, I used [Redux](https://redux.js.org/) as a simple, yet efficient solution, which helps medium and large-scale projects to manage the state. 
 
 
- ## Testing
- - To cover more parts of the project in a short time, I have used Cypress for E2E testing with two scenarios as samples. To run the tests, please first start the application, and then run the command: `npm run test:open` or `npm run test:e2e`.
+ ## Automated Tests
+ To cover more parts of the project with less codes, I have used **Cypress** for end-to-end testing with two scenarios as samples. To run the tests, please first start the application, and then run the command: `npm run test:open` or `npm run test:e2e`.
 
  ## Code quality
  EsLint and SonarQube are used to check the code quality and security. To run the SonarQube, please setup SonarQube service first, then run the command: `npm run sonar`. 
