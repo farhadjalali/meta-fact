@@ -3,10 +3,10 @@
 */
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { PageRelations } from './pages/PageRelations'
-import { PageRelation } from './pages/PageRelation'
-import { PageHome } from './pages/PageHome'
-import { PageNotFound } from './pages/PageNotFound'
+import { PageRelations } from './pages/relations/PageRelations'
+import { PageRelation } from './pages/relation/PageRelation'
+import { PageHome } from './pages/home/PageHome'
+import { PageNotFound } from './pages/not-found/PageNotFound'
 
 export const AppRoutes = () => (
   <BrowserRouter>

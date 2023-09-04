@@ -1,17 +1,22 @@
-import { Relation } from '../../services'
-import './style.scss'
+import { RelationState, RootState, retrieveRelations, useAppDispatch } from '../../services'
 import { useNavigate } from 'react-router'
-import { FC } from 'react'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { ProgressBar } from '../../common/progress-bar/ProgressBar'
+import './style.scss'
 
-type Props = {
-  relations: Relation[]
-}
-
-export const RelationsList: FC<Props> = ({ relations }) => {
+export const RelationsList = () => {
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+  const { relations, loadingProgress } = useSelector<RootState, RelationState>((state) => state.relation)
+
+  useEffect(() => {
+    dispatch(retrieveRelations())
+  }, [dispatch])
 
   return (
     <div className="relations-list">
+      <ProgressBar progress={loadingProgress ?? 0} />
       <table>
         <thead>
           <tr>

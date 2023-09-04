@@ -2,7 +2,10 @@
 
 ## Table of Contents
 
-- [Quick introduction](docs/quick-introduction.md)
+- [Introduction](docs/introduction.md)
 - [Project Structure](docs/project-structure.md)
-- [Features](docs/Features.md)
 - [Setup and Run](docs/setup-and-run.md)
+
+## Running sample
+Hosted on Vercel:
+[https://meta-fact.vercel.app/](https://meta-fact.vercel.app/).

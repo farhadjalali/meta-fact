@@ -4,14 +4,12 @@ import { Relation } from './types'
 
 export interface RelationState {
   relations: Relation[]
-  loadingState: 'idle' | 'loading' | 'failed' | 'completed'
-  loadingProgress: number
+  loadingProgress: number | null
 }
 
 const initialState: RelationState = {
   relations: [],
-  loadingState: 'idle',
-  loadingProgress: 0,
+  loadingProgress: null,
 }
 
 const relationSlice = createSlice({
@@ -27,16 +25,12 @@ const relationSlice = createSlice({
       }
     },
 
-    loadingStateUpdated: (state, action: PayloadAction<RelationState['loadingState']>) => {
-      state.loadingState = action.payload
-    },
-
     loadingProgressUpdated: (state, action: PayloadAction<number>) => {
       state.loadingProgress = action.payload
     },
   },
 })
 
-export const { relationUpserted, loadingStateUpdated, loadingProgressUpdated } = relationSlice.actions
+export const { relationUpserted, loadingProgressUpdated } = relationSlice.actions
 
 export const relationReducer = relationSlice.reducer

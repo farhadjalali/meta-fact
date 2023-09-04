@@ -26,20 +26,3 @@
     }
   }
 }
-
-.relation-card {
-  .head {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    .back-button {
-      cursor: pointer;
-      padding-right: 2rem;
-      font-size: 4rem;
-      &:hover {
-        opacity: 0.5;
-      }
-    }
-  }
-}

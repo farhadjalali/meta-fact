@@ -1,4 +1,4 @@
-import { RelationCard } from '../components/relations/RelationCard'
+import { RelationCard } from '../../components/relation-card/RelationCard'
 
 export const PageRelation = () => {
   return (

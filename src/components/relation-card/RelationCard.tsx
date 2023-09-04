@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import './style.scss'
 import { config } from '../../config'
 import { useSelector } from 'react-redux'
-import { CardField } from '../card-field/CardField'
+import { CardField } from '../../common/card-field/CardField'
 import { toast } from 'react-toastify'
 
 export const RelationCard: FC = () => {
@@ -43,8 +43,8 @@ export const RelationCard: FC = () => {
 
   return (
     <div className="relation-card">
-      <div className="head">
-        <div className="back-button" onClick={() => navigate(-1)}>
+      <div className="relation-card-head">
+        <div className="relation-card-back-button" onClick={() => navigate(-1)}>
           &#65513;
         </div>
         <h1>{[relation.name, relation.surname].join(' ')}</h1>

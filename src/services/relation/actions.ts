@@ -1,32 +1,22 @@
 import { Dispatch } from '@reduxjs/toolkit'
 import { Observable } from 'rxjs'
-import { loadingProgressUpdated, loadingStateUpdated, relationUpserted } from './reducer'
+import { loadingProgressUpdated, relationUpserted } from './reducer'
 import { PartialLoadItem, Relation } from './types'
-import { sample } from './sample-data'
 import { GetStateFunction } from '../store'
+
+// Mock data
+import sample from './sample.json'
 
 export const retrieveRelations = () => (dispatch: Dispatch, getState: GetStateFunction) => {
   const { relation } = getState()
-  if (relation.loadingState !== 'idle') return // Only load if we are in idle state
-
-  // First set the loading state to loading
-  dispatch(loadingStateUpdated('loading'))
+  if (relation.loadingProgress !== null) return // Only load if we are in idle state
 
   // Then start loading the relations
-  loadRelationObserver$().subscribe({
-    next: ({ item, index, total }) => {
-      // Update / insert the relation in the store
-      dispatch(relationUpserted(item))
-      const progress = Math.ceil(((index + 1) / total) * 100)
-      dispatch(loadingProgressUpdated(progress))
-    },
-    error: (error) => {
-      console.error(error)
-      dispatch(loadingStateUpdated('failed'))
-    },
-    complete: () => {
-      dispatch(loadingStateUpdated('completed'))
-    },
+  loadRelationObserver$().subscribe(({ item, index, total }) => {
+    // Update / insert the relation in the store
+    dispatch(relationUpserted(item))
+    const progress = Math.round(((index + 1) / total) * 100)
+    dispatch(loadingProgressUpdated(progress))
   })
 }
 
@@ -41,7 +31,7 @@ export const loadRelationObserver$ = () =>
         return subscriber.complete()
       }
 
-      subscriber.next({ item: sample[index], index, total: sample.length })
+      subscriber.next({ item: sample[index] as Relation, index, total: sample.length })
       index++
     }, itemLoadSimulatedDelay)
   })
