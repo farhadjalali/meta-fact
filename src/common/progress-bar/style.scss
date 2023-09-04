@@ -4,11 +4,11 @@
     height: 8px;
     background-color: transparent;
     overflow: hidden;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    width: 100%;
+    z-index: 100;
 
     div {
         height: 100%;
@@ -17,9 +17,5 @@
         transition:
             width 0.3s linear,
             opacity 2s ease-out;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
     }
 }

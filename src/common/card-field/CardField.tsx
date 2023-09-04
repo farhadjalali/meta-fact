@@ -48,7 +48,7 @@ export const CardField: FC<Props> = ({ name, label, validation, defaultValue, on
       <label>{label}</label>
       {editMode ? (
         <input
-          className={hasError ? 'error' : ''}
+          className={hasError ? 'with-error' : ''}
           autoFocus
           onBlur={() => setEditMode(false)}
           type="text"

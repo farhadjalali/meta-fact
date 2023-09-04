@@ -15,8 +15,9 @@ export const RelationsList = () => {
   }, [dispatch])
 
   return (
-    <div className="relations-list">
+    <div className="relation-list">
       <ProgressBar progress={loadingProgress ?? 0} />
+
       <table>
         <thead>
           <tr>
@@ -45,8 +46,6 @@ export const RelationsList = () => {
           })}
         </tbody>
       </table>
-
-      {/* <button onClick={onRelationAdd}>New Relation</button> */}
     </div>
   )
 }

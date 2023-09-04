@@ -28,13 +28,13 @@ export const RelationCard: FC = () => {
     resetRelation()
   }, [resetRelation])
 
-  function commitChanges() {
+  function handleCommitChange() {
     dispatch(updateRelation(relation!))
     setIsDirty(false)
     toast('Saved!', { type: 'success' })
   }
 
-  function onFieldChange(ev: { name: string; newValue: string | undefined }) {
+  function onFieldChanged(ev: { name: string; newValue: string | undefined }) {
     setIsDirty(true)
     setRelation({ ...relation, [ev.name]: ev.newValue } as Relation)
   }
@@ -50,41 +50,41 @@ export const RelationCard: FC = () => {
         <h1>{[relation.name, relation.surname].join(' ')}</h1>
       </div>
 
-      <CardField name="name" label="Name" defaultValue={relation.name} onChange={onFieldChange} />
-      <CardField name="surname" label="Surname" defaultValue={relation.surname} onChange={onFieldChange} />
+      <CardField name="name" label="Name" defaultValue={relation.name} onChange={onFieldChanged} />
+      <CardField name="surname" label="Surname" defaultValue={relation.surname} onChange={onFieldChanged} />
       <CardField
         name="gender"
         label="Gender"
         validation={['male', 'female']}
         defaultValue={relation.gender}
-        onChange={onFieldChange}
+        onChange={onFieldChanged}
       />
       <CardField
         name="age"
         label="Age"
         validation={config.validation.ageRegex}
         defaultValue={String(relation.age)}
-        onChange={onFieldChange}
+        onChange={onFieldChanged}
       />
       <CardField
         name="phone"
         label="Phone"
         validation={config.validation.phoneRegex}
         defaultValue={relation.phone}
-        onChange={onFieldChange}
+        onChange={onFieldChanged}
       />
       <CardField
         name="email"
         label="Email"
         validation={config.validation.emailRegex}
         defaultValue={relation.email}
-        onChange={onFieldChange}
+        onChange={onFieldChanged}
       />
-      <CardField name="address" label="Address" defaultValue={relation.address} onChange={onFieldChange} />
+      <CardField name="address" label="Address" defaultValue={relation.address} onChange={onFieldChanged} />
 
       {isDirty && (
         <div className="buttons-group">
-          <button className="primary" onClick={commitChanges}>
+          <button className="primary" onClick={handleCommitChange}>
             Save
           </button>
           <button onClick={resetRelation}>Cancel</button>

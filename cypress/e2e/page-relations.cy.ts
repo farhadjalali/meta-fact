@@ -1,4 +1,4 @@
-import sample from '../fixtures/relations.json'
+import sample from '../fixtures/sample.json'
 
 describe('Page Relations', () => {
   beforeEach(() => {
