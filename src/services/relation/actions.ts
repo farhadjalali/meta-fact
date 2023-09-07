@@ -1,11 +1,9 @@
 import { Dispatch } from '@reduxjs/toolkit'
-import { Observable } from 'rxjs'
-import { loadingProgressUpdated, relationUpserted } from './reducer'
-import { PartialLoadItem, Relation } from './types'
-import { GetStateFunction } from '../store'
 
-// Mock data
-import sample from './sample.json'
+import { loadingProgressUpdated, relationUpserted } from './reducer'
+import { GetStateFunction } from '../store'
+import { loadRelationObserver$ } from './api'
+import { Relation } from './types'
 
 export const retrieveRelations = () => (dispatch: Dispatch, getState: GetStateFunction) => {
   const { relation } = getState()
@@ -20,25 +18,9 @@ export const retrieveRelations = () => (dispatch: Dispatch, getState: GetStateFu
   })
 }
 
-export const loadRelationObserver$ = () =>
-  // Mocking the loading of the relations
-  new Observable<PartialLoadItem<Relation>>((subscriber) => {
-    let index = 0
-    const itemLoadSimulatedDelay = 500 // ms
-    const interval = setInterval(() => {
-      if (index === sample.length) {
-        clearInterval(interval)
-        return subscriber.complete()
-      }
-
-      subscriber.next({ item: sample[index] as Relation, index, total: sample.length })
-      index++
-    }, itemLoadSimulatedDelay)
-  })
-
 export const updateRelation = (relation: Relation) => (dispatch: Dispatch) => {
   /*
-   Add logic to update the relation in the backend here!
+   Add logic here to update the relation in the backend!
   */
   dispatch(relationUpserted(relation))
 }
