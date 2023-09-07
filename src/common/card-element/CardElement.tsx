@@ -1,3 +1,7 @@
+/**
+ * Card element component, combination of label and input control
+ */
+
 import { FC, useState, ChangeEvent, useEffect } from 'react'
 import './style.scss'
 
@@ -9,7 +13,7 @@ type Props = {
   onChange: (ev: { name: string; newValue: string | undefined }) => void
 }
 
-export const CardField: FC<Props> = ({ name, label, validation, defaultValue, onChange }) => {
+export const CardElement: FC<Props> = ({ name, label, validation, defaultValue, onChange }) => {
   const [editMode, setEditMode] = useState(false)
   const [hasError, setHasError] = useState(false)
   const [value, setValue] = useState(defaultValue)

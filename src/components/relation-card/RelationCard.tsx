@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import './style.scss'
 import { config } from '../../config'
 import { useSelector } from 'react-redux'
-import { CardField } from '../../common/card-field/CardField'
+import { CardElement } from '../../common/card-element/CardElement'
 import { toast } from 'react-toastify'
 
 export const RelationCard: FC = () => {
@@ -50,37 +50,37 @@ export const RelationCard: FC = () => {
         <h1>{[relation.name, relation.surname].join(' ')}</h1>
       </div>
 
-      <CardField name="name" label="Name" defaultValue={relation.name} onChange={onFieldChanged} />
-      <CardField name="surname" label="Surname" defaultValue={relation.surname} onChange={onFieldChanged} />
-      <CardField
+      <CardElement name="name" label="Name" defaultValue={relation.name} onChange={onFieldChanged} />
+      <CardElement name="surname" label="Surname" defaultValue={relation.surname} onChange={onFieldChanged} />
+      <CardElement
         name="gender"
         label="Gender"
         validation={['male', 'female']}
         defaultValue={relation.gender}
         onChange={onFieldChanged}
       />
-      <CardField
+      <CardElement
         name="age"
         label="Age"
         validation={config.validation.ageRegex}
         defaultValue={String(relation.age)}
         onChange={onFieldChanged}
       />
-      <CardField
+      <CardElement
         name="phone"
         label="Phone"
         validation={config.validation.phoneRegex}
         defaultValue={relation.phone}
         onChange={onFieldChanged}
       />
-      <CardField
+      <CardElement
         name="email"
         label="Email"
         validation={config.validation.emailRegex}
         defaultValue={relation.email}
         onChange={onFieldChanged}
       />
-      <CardField name="address" label="Address" defaultValue={relation.address} onChange={onFieldChanged} />
+      <CardElement name="address" label="Address" defaultValue={relation.address} onChange={onFieldChanged} />
 
       {isDirty && (
         <div className="buttons-group">

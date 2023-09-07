@@ -4,7 +4,7 @@ import { Relation } from './types'
 
 export interface RelationState {
   relations: Relation[]
-  loadingProgress: number | null
+  loadingProgress: number | null // null means idle, 0-100 means loading
 }
 
 const initialState: RelationState = {

@@ -7,7 +7,7 @@ import { Relation } from './types'
 
 export const retrieveRelations = () => (dispatch: Dispatch, getState: GetStateFunction) => {
   const { relation } = getState()
-  if (relation.loadingProgress !== null) return // Only load if we are in idle state
+  if (relation.loadingProgress !== null) return // Only loads if we are in idle state
 
   // Then start loading the relations
   loadRelationObserver$().subscribe(({ item, index, total }) => {
